@@ -29,7 +29,7 @@
 
 body {
   min-height: 100vh;
-  background-image: linear-gradient(rgb(128, 128, 255) 0%, hsl(0, 0%, 96%) 70%);
+  background-color: #f8f9fa;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -46,15 +46,31 @@ a {
   text-decoration: none;
 }
 
+.block-link {
+  display: block;
+}
+
 .body {
   display: flex;
   flex-direction: column;
 }
 
+.body--home {
+  background-image: linear-gradient(rgb(128, 128, 255) 0%, #f8f9fa 70%);
+}
+
+.components-gap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--components-gap);
+}
 .header {
   display: flex;
   gap: 0.2em;
   align-items: flex-end;
+}
+
+.header--center {
   justify-content: center;
 }
 
@@ -95,4 +111,126 @@ a {
 
 .emphasis-text {
   font-weight: bolder;
+}
+
+.toggle-nav {
+  margin: 0 0 0.5rem auto;
+  width: 1.7rem;
+  height: 1.5rem;
+  padding-top: 0.3rem;
+  text-indent: 10rem;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.toggle-nav::before {
+  text-indent: 0;
+  content: "\2630";
+  position: absolute;
+  top: 0;
+  left: 0.3rem;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.menu-container {
+  display: none;
+}
+.visible {
+  display: block;
+  position: fixed;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 50%;
+  background-color: white;
+  margin-top: var(--components-gap);
+}
+
+.menu {
+  list-style-type: none;
+  /* margin-top: var(--components-gap); */
+  box-shadow: 1px 1px 0.3rem rgb(168, 168, 168);
+  border-radius: 5px;
+  height: 100vh;
+}
+
+.menu .menu__list + .menu__list {
+  border-top: 1px solid rgb(61, 61, 61);
+}
+
+.menu__list a {
+  display: block;
+  color: #4b8df8;
+  padding: 1rem 0 0.5rem 0.5rem;
+}
+
+.main-section {
+  margin-top: var(--sections-gap);
+}
+
+.main-section > ul {
+  list-style-type: none;
+}
+
+.main-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-elements-gap);
+  text-align: center;
+}
+
+.main-section-cards {
+  margin-top: var(--components-gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--components-gap);
+}
+
+.main-section-card {
+  background-color: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0.5px 0.5px 1.3px rgb(82, 82, 82);
+}
+
+.department-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: var(--components-gap);
+}
+
+.level-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: var(--text-elements-gap);
+}
+
+.level-card > .forward-arrow {
+  margin-left: auto;
+}
+
+.course-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-elements-gap);
+  color: black;
+}
+
+.course-card__code {
+  align-self: flex-start;
+}
+
+.lecture-card {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

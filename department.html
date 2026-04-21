@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure>
+        <img
+          src="assets/images/book_mb.png"
+          alt="book"
+          width="60px"
+          height="53px"
+        />
+      </figure>
+      <h1>EduVault</h1>
+      <button class="toggle-nav" id="toggle-nav">toggle nav</button>
+    </header>
+    <nav class="menu-container" id="nav">
+      <ul class="menu">
+        <li class="menu__list"><a href="/">Home</a></li>
+        <li class="menu__list"><a href="department.html">Department</a></li>
+        <li class="menu__list"><a href="level.html">Level</a></li>
+        <li class="menu__list"><a href="courses.html">Courses</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="main-section">
+        <div class="main-section-head">
+          <h2>Select your department</h2>
+          <p>Which department did you belong to?</p>
+        </div>
+        <ul class="main-section-cards">
+          <li>
+            <a
+              href="level.html"
+              class="department-card main-section-card department"
+              data-department="Computer Science"
+            >
+              <figure>
+                <img
+                  src="assets/icons/comp_sci.png"
+                  alt="computer-science-logo"
+                />
+              </figure>
+              <p>computer science</p>
+            </a>
+          </li>
+          <li>
+            <a
+              href="level.html"
+              class="department-card main-section-card department"
+              data-department="Software Engineering"
+            >
+              <figure>
+                <img
+                  src="assets/icons/software_Eng.png"
+                  alt="software-engneering-logo"
+                />
+              </figure>
+              <p>software engineering</p>
+            </a>
+          </li>
+          <li>
+            <a
+              href="level.html"
+              class="department-card main-section-card department"
+              data-department="Cyber Security"
+            >
+              <figure>
+                <img
+                  src="assets/icons/cyb_security.png"
+                  alt="cyber-security-logo"
+                />
+              </figure>
+              <p>cyber security</p>
+            </a>
+          </li>
+          <li>
+            <a
+              href="level.html"
+              class="department-card main-section-card department"
+              data-department="Information Technology"
+            >
+              <figure>
+                <img
+                  src="assets/icons/IT.png"
+                  alt="information-technology-logo"
+                />
+              </figure>
+              <p>information technology</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+      setDepartment();
+    </script>
+  </body>
+</html>

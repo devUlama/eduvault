@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>level</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure>
+        <img
+          src="assets/images/book_mb.png"
+          alt="book"
+          width="60px"
+          height="53px"
+        />
+      </figure>
+      <h1>EduVault</h1>
+      <button class="toggle-nav" id="toggle-nav">toggle nav</button>
+    </header>
+    <nav class="menu-container" id="nav">
+      <ul class="menu">
+        <li class="menu__list"><a href="/">Home</a></li>
+        <li class="menu__list"><a href="department.html">Department</a></li>
+        <li class="menu__list"><a href="level.html">Level</a></li>
+        <li class="menu__list"><a href="courses.html">Courses</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="main-section">
+        <div class="main-section-head">
+          <h2>Select your level</h2>
+          <p>what is your current level?</p>
+        </div>
+        <ul class="main-section-cards">
+          <li>
+            <a
+              href="courses.html"
+              class="level-card main-section-card level"
+              data-level="100"
+            >
+              <figure>
+                <img src="assets/icons/docs.svg" alt="document" />
+              </figure>
+              <span>100 Level</span>
+              <figure class="forward-arrow">
+                <img src="assets/icons/forward-arrow.svg" alt="forward-arrow" />
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a
+              href="courses.html"
+              class="level-card main-section-card level"
+              data-level="200"
+            >
+              <figure>
+                <img src="assets/icons/docs.svg" alt="document" />
+              </figure>
+              <span>200 Level</span>
+              <figure class="forward-arrow">
+                <img src="assets/icons/forward-arrow.svg" alt="forward-arrow" />
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a
+              href="courses.html"
+              class="level-card main-section-card level"
+              data-level="300"
+            >
+              <figure>
+                <img src="assets/icons/docs.svg" alt="document" />
+              </figure>
+              <span>300 Level</span>
+              <figure class="forward-arrow">
+                <img src="assets/icons/forward-arrow.svg" alt="forward-arrow" />
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a
+              href="courses.html"
+              class="level-card main-section-card level"
+              data-level="400"
+            >
+              <figure>
+                <img src="assets/icons/docs.svg" alt="document" />
+              </figure>
+              <span>400 Level</span>
+              <figure class="forward-arrow">
+                <img src="assets/icons/forward-arrow.svg" alt="forward-arrow" />
+              </figure>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+      setLevel();
+    </script>
+  </body>
+</html>

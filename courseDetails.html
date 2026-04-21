@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Detials</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure>
+        <img
+          src="assets/images/book_mb.png"
+          alt="book"
+          width="60px"
+          height="53px"
+        />
+      </figure>
+      <h1>EduVault</h1>
+      <button class="toggle-nav" id="toggle-nav">toggle nav</button>
+    </header>
+    <nav class="menu-container" id="nav">
+      <ul class="menu">
+        <li class="menu__list"><a href="/">Home</a></li>
+        <li class="menu__list"><a href="department.html">Department</a></li>
+        <li class="menu__list"><a href="level.html">Level</a></li>
+        <li class="menu__list"><a href="courses.html">Courses</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="main-section">
+        <h3 class="main-section-head" id="courseHeading">
+          <!--  COS 101 <br />Introduction to computer science -->
+        </h3>
+
+        <!-- <div>
+          <div class="main-section-cards-head">
+            <h4>Course Content</h4>
+            <div><hr /></div>
+          </div>
+
+          <ul class="main-section-cards">
+            <li>
+              <h5><span>Lecture 1 Introduction to Data Structures</span></h5>
+              <hr />
+              <ul class="">
+                <li>what is data structure</li>
+                <li>importance in programming</li>
+                <li>Real life example</li>
+              </ul>
+              <div>
+                <button>Open Material</button>
+                <button>Download</button>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+        <ul class="main-section-cards" id="lecturesCards">
+          <!-- <li>
+            <a
+              href="materials/php/lec1.pdf"
+              target=""
+              class="main-section-card lecture-card"
+            >
+              <img src="assets/icons/docs.svg" alt="document" />
+
+              <div>
+                <h4>Lecture 1</h4>
+                <p>History of the computing field</p>
+              </div>
+            </a>
+          </li> -->
+        </ul>
+      </section>
+    </main>
+
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/courseDetails.js"></script>
+    <script>
+      let courseList = courseDetials[localStorage.getItem("courseCode")];
+      console.log(courseList);
+
+      let targetCourseHeading = document.querySelector("#courseHeading");
+
+      /* to work on it later */
+      let courseCode = localStorage.getItem("courseCode");
+      let courseTitle = localStorage.getItem("courseTitle");
+      targetCourseHeading.textContent = "";
+      targetCourseHeading.append(
+        courseCode,
+        " ",
+        document.createElement("br"),
+        " ",
+        courseTitle,
+      );
+      /* " COS 101 <br />Introduction to computer science"; */
+
+      let lectureCards = document.querySelector("#lecturesCards");
+
+      if (courseList) {
+        for (let courses of courseList) {
+          let lectureCard = document.createElement("li");
+
+          let lecturesDescription = document.createElement("p");
+
+          lecturesDescription.textContent = courses.lectureTitle;
+
+          let lecturesNumber = document.createElement("h4");
+
+          lecturesNumber.textContent = "Lecture " + courses.lectureId;
+
+          let h4pContainer = document.createElement("div");
+
+          h4pContainer.append(lecturesNumber, lecturesDescription);
+
+          let docsIcon = document.createElement("img");
+          docsIcon.src = "assets/icons/docs.svg";
+          docsIcon.alt = "document";
+
+          let lectureLink = document.createElement("a");
+          lectureLink.href = courses.lectureLink;
+          lectureLink.target = "_blank";
+          lectureLink.classList.add("main-section-card", "lecture-card");
+
+          lectureLink.append(docsIcon, h4pContainer);
+          lectureCard.append(lectureLink);
+
+          console.log(lectureCard);
+
+          /* let lectureCards = document.querySelector("#lecturesCards"); */
+          lectureCards.append(lectureCard);
+          console.log(lectureCards);
+        }
+      }
+
+      console.log(localStorage.getItem("courseCode"));
+    </script>
+  </body>
+</html>
