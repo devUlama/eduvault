@@ -51,11 +51,11 @@
     <script src="scripts/courses.js"></script>
     <script src="scripts/main.js"></script>
     <script>
-      let level = sessionStorage.getItem("level");
-      let department = sessionStorage.getItem("department");
+      let level = localStorage.getItem("level");
+      let department = localStorage.getItem("department");
       let courses2 = getCourses();
-
-      for (var course of courses2) {
+      let course;
+      for (course of courses2) {
         addCourse();
       }
 
@@ -129,13 +129,12 @@
         },
       }; */
 
-      /*  console.log(sessionStorage.getItem("department"));
-      console.log(sessionStorage.getItem("level")); */
+      /*  console.log(localStorage.getItem("department"));
+      console.log(localStorage.getItem("level")); */
 
       let header = document.querySelector("#coursesPage");
 
-      header.firstElementChild.textContent =
-        sessionStorage.getItem("department");
+      header.firstElementChild.textContent = localStorage.getItem("department");
       header.lastElementChild.textContent =
         "Browse Level " +
         level +

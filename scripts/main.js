@@ -4,7 +4,7 @@ function setDepartment() {
     department.addEventListener("click", function (event) {
       event.stopPropagation;
       let departmentBelongTo = department.dataset.department;
-      sessionStorage.setItem("department", departmentBelongTo);
+      localStorage.setItem("department", departmentBelongTo);
     });
   }
 }
@@ -15,14 +15,14 @@ function setLevel() {
     level.addEventListener("click", function (event) {
       event.stopPropagation();
       let levelBelongTo = level.dataset.level;
-      sessionStorage.setItem("level", levelBelongTo);
+      localStorage.setItem("level", levelBelongTo);
     });
   }
 }
 
 function getCourses() {
-  let department = sessionStorage.getItem("department");
-  let level = sessionStorage.getItem("level");
+  let department = localStorage.getItem("department");
+  let level = localStorage.getItem("level");
   console.log(department);
   console.log(level);
   let courseList = courses[department][level];
@@ -41,13 +41,13 @@ function addCourse() {
 }
 
 function makeCourseItem() {
-  let card = makeCourses();
+  let card = makeCourse();
   let cardList = document.createElement("li");
   cardList.append(card);
   return cardList;
 }
 
-function makeCourses() {
+function makeCourse() {
   let courseCard = document.createElement("a");
   courseCard.href = "courseDetails.html";
   courseCard.classList.add("main-section-card", "course-card", "block-link");
