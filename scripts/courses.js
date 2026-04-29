@@ -230,3 +230,14 @@ const courses = {
     400: [],
   },
 };
+
+/* RETURN LIST OF COURSES FOR A SPECIFIC DEPARTMENT AND LEVEL
+ */
+export function getCourses() {
+  let department = localStorage.getItem("department");
+  let level = localStorage.getItem("level");
+  console.log(department);
+  console.log(level);
+  let courseList = courses[department][level];
+  return courseList;
+}
