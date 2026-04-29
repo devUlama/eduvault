@@ -1,0 +1,32 @@
+.body {
+  display: flex;
+  flex-direction: column;
+}
+.body--home {
+  background-image: linear-gradient(rgb(128, 128, 255) 0%, #f8f9fa 70%);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--components-gap);
+}
+
+.image-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--text-elements-gap);
+}
+
+.hero-image {
+  margin-bottom: var(--sections-gap);
+  /* height: 65vh; */
+  /* flex-grow: 1; */
+}
+
+.components-gap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--components-gap);
+}

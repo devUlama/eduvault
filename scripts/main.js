@@ -50,7 +50,7 @@ function makeCourseItem() {
 function makeCourse() {
   let courseCard = document.createElement("a");
   courseCard.href = "courseDetails.html";
-  courseCard.classList.add("main-section-card", "course-card", "block-link");
+  courseCard.classList.add("card", "course-card", "block-a");
   addCourseDetials(courseCard);
   return courseCard;
 }

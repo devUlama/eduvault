@@ -1,0 +1,8 @@
+.lecture-card {
+  padding: 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  outline: none;
+}

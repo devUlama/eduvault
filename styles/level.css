@@ -1,0 +1,15 @@
+/* .level-cards {
+  display: flex;
+  gap: 1rem;
+  flex-flow: column;
+} */
+.level-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: var(--text-elements-gap);
+}
+
+.level-card > .forward-arrow {
+  margin-left: auto;
+}

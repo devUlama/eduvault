@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Course</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/viewCourse.css" />
+  </head>
+  <body>
+    <header class="header">
+      <figure>
+        <img
+          src="assets/images/book_mb.png"
+          alt="book"
+          width="60px"
+          height="53px"
+        />
+      </figure>
+      <h1>EduVault</h1>
+      <button class="toggle-nav" id="toggle-nav">toggle nav</button>
+    </header>
+    <nav class="menu-container" id="nav">
+      <ul class="menu">
+        <li class="menu__list"><a href="index.html">Home</a></li>
+        <li class="menu__list"><a href="department.html">Department</a></li>
+        <li class="menu__list"><a href="level.html">Level</a></li>
+        <li class="menu__list"><a href="courses.html">Courses</a></li>
+      </ul>
+    </nav>
+    <main style="flex-grow: 1; display: flex; flex-direction: column">
+      <!-- <section class="main-section" style="height: 100%"> -->
+      <iframe src="" frameborder="0" width="100%" style="flex-grow: 1">
+      </iframe>
+      <!-- </section> -->
+    </main>
+    <script src="scripts/nav.js"></script>
+    <script>
+      let iframeSrc = document.querySelector("iframe");
+      iframeSrc.src = localStorage.getItem("lectureLink");
+    </script>
+  </body>
+</html>

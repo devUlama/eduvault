@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Courses</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/courses.css" />
   </head>
   <body>
     <header class="header">
@@ -30,13 +31,13 @@
 
     <main>
       <section class="main-section">
-        <div class="main-section-head" id="coursesPage">
+        <div class="main-section__heading" id="coursesPage">
           <h2></h2>
           <p></p>
         </div>
-        <ul class="main-section-cards" id="course-card">
+        <ul class="main-section__body" id="course-card">
           <!-- <li>
-            <a href="/" class="main-section-card course-card block-link">
+            <a href="/" class="card course-card block-a">
               <span class="button course-card__code">COS 101</span>
               <h3>introduction to computer science</h3>
               <p>Learn the basic and fundamentals of computer science</p>
@@ -61,7 +62,7 @@
 
       /*  let card = document.createElement("a");
       card.href = "/";
-      card.classList.add("main-section-card", "course-card", "block-link");
+      card.classList.add("card", "course-card", "block-a");
 
       console.log(card);
 

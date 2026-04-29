@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Course Detials</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/courseDetials.css" />
   </head>
   <body>
     <header class="header">
@@ -30,17 +31,17 @@
 
     <main>
       <section class="main-section">
-        <h3 class="main-section-head" id="courseHeading">
+        <h3 class="main-section__heading" id="courseHeading">
           <!--  COS 101 <br />Introduction to computer science -->
         </h3>
 
         <!-- <div>
-          <div class="main-section-cards-head">
+          <div class="main-section__body-head">
             <h4>Course Content</h4>
             <div><hr /></div>
           </div>
 
-          <ul class="main-section-cards">
+          <ul class="main-section__body">
             <li>
               <h5><span>Lecture 1 Introduction to Data Structures</span></h5>
               <hr />
@@ -56,12 +57,12 @@
             </li>
           </ul>
         </div> -->
-        <ul class="main-section-cards" id="lecturesCards">
+        <ul class="main-section__body" id="lecturesCards">
           <!-- <li>
             <a
               href="materials/php/lec1.pdf"
               target=""
-              class="main-section-card lecture-card"
+              class="card lecture-card"
             >
               <img src="assets/icons/docs.svg" alt="document" />
 
@@ -118,10 +119,13 @@
           docsIcon.src = "assets/icons/docs.svg";
           docsIcon.alt = "document";
 
-          let lectureLink = document.createElement("a");
-          lectureLink.href = courses.lectureLink;
-          lectureLink.target = "_blank";
-          lectureLink.classList.add("main-section-card", "lecture-card");
+          let lectureLink = document.createElement("button");
+
+          /* lectureLink.href = courses.lectureLink; */
+          localStorage.setItem("lectureLink", courses.lectureLink);
+          lectureLink.setAttribute("data-lecture-link", courses.lectureLink);
+          lectureLink.id = "lectureButton";
+          lectureLink.classList.add("card", "lecture-card");
 
           lectureLink.append(docsIcon, h4pContainer);
           lectureCard.append(lectureLink);
@@ -135,6 +139,19 @@
       }
 
       console.log(localStorage.getItem("courseCode"));
+      console.log(localStorage.getItem("courseTitle"));
+
+      let lectureSlides = document.querySelectorAll("#lectureButton");
+
+      for (let lectureSlide of lectureSlides) {
+        console.log(lectureSlide.getAttribute("data-lecture-link"));
+        console.log(lectureSlide.dataset.lectureLink);
+        lectureSlide.addEventListener("click", function (event) {
+          localStorage.setItem("lectureLink", lectureSlide.dataset.lectureLink);
+          window.location.href = "viewCourse.html";
+          event.stopPropagation();
+        });
+      }
     </script>
   </body>
 </html>
