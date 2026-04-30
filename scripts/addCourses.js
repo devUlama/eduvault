@@ -46,7 +46,6 @@ function createCourseCode(course) {
 /* CREATE COURSE TITLE NODE */
 function createCourseTitle(course) {
   let courseTitle = document.createElement("h3");
-  /* to be check */
   courseTitle.textContent = course.courseTitle;
   return courseTitle;
 }
@@ -88,7 +87,7 @@ function handleClickCourse() {
     let courseTitle = courseItem.querySelector("h3").textContent;
     localStorage.setItem("courseTitle", courseTitle);
     localStorage.setItem("courseCode", courseCode);
-    event.stopPropagation;
+    event.stopPropagation();
   });
 }
 

@@ -77,81 +77,10 @@
     </main>
 
     <script src="scripts/nav.js"></script>
-    <script src="scripts/courseDetails.js"></script>
+    <script type="module" src="scripts/crsDetails.js"></script>
     <script>
-      let courseList = courseDetials[localStorage.getItem("courseCode")];
-      console.log(courseList);
-
-      let targetCourseHeading = document.querySelector("#courseHeading");
-
-      /* to work on it later */
-      let courseCode = localStorage.getItem("courseCode");
-      let courseTitle = localStorage.getItem("courseTitle");
-      targetCourseHeading.textContent = "";
-      targetCourseHeading.append(
-        courseCode,
-        " ",
-        document.createElement("br"),
-        " ",
-        courseTitle,
-      );
-      /* " COS 101 <br />Introduction to computer science"; */
-
-      let lectureCards = document.querySelector("#lecturesCards");
-
-      if (courseList) {
-        for (let courses of courseList) {
-          let lectureCard = document.createElement("li");
-
-          let lecturesDescription = document.createElement("p");
-
-          lecturesDescription.textContent = courses.lectureTitle;
-
-          let lecturesNumber = document.createElement("h4");
-
-          lecturesNumber.textContent = "Lecture " + courses.lectureId;
-
-          let h4pContainer = document.createElement("div");
-
-          h4pContainer.append(lecturesNumber, lecturesDescription);
-
-          let docsIcon = document.createElement("img");
-          docsIcon.src = "assets/icons/docs.svg";
-          docsIcon.alt = "document";
-
-          let lectureLink = document.createElement("button");
-
-          /* lectureLink.href = courses.lectureLink; */
-          localStorage.setItem("lectureLink", courses.lectureLink);
-          lectureLink.setAttribute("data-lecture-link", courses.lectureLink);
-          lectureLink.id = "lectureButton";
-          lectureLink.classList.add("card", "lecture-card");
-
-          lectureLink.append(docsIcon, h4pContainer);
-          lectureCard.append(lectureLink);
-
-          console.log(lectureCard);
-
-          /* let lectureCards = document.querySelector("#lecturesCards"); */
-          lectureCards.append(lectureCard);
-          console.log(lectureCards);
-        }
-      }
-
       console.log(localStorage.getItem("courseCode"));
       console.log(localStorage.getItem("courseTitle"));
-
-      let lectureSlides = document.querySelectorAll("#lectureButton");
-
-      for (let lectureSlide of lectureSlides) {
-        console.log(lectureSlide.getAttribute("data-lecture-link"));
-        console.log(lectureSlide.dataset.lectureLink);
-        lectureSlide.addEventListener("click", function (event) {
-          localStorage.setItem("lectureLink", lectureSlide.dataset.lectureLink);
-          window.location.href = "viewCourse.html";
-          event.stopPropagation();
-        });
-      }
     </script>
   </body>
 </html>

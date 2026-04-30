@@ -1,4 +1,4 @@
-const courseDetials = {
+const courseDetails = {
   "ITC 3304": [
     {
       lectureId: 1,
@@ -42,3 +42,9 @@ const courseDetials = {
     }, */
   ],
 };
+
+export function course() {
+  let courseId = localStorage.getItem("courseCode");
+  let lectures = courseDetails[courseId];
+  return lectures;
+}
