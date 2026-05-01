@@ -1,128 +1,90 @@
-const courseDetails = {
-  "ITC 3304": [
-    {
-      lectureId: 1,
-      lectureLink: "materials/php/lec1.pdf",
-      lectureTitle: "Introduction to php",
-    },
-    {
-      lectureId: 2,
-      lectureLink: "materials/php/lec2.pdf",
-      lectureTitle: "Control Structures",
-    },
-    {
-      lectureId: 3,
-      lectureLink: "materials/php/lec3.pdf",
-      lectureTitle: "Function and Arrays",
-    },
-    {
-      lectureId: 4,
-      lectureLink: "materials/php/lec4.pdf",
-      lectureTitle: "Handling HTML forms with PHP",
-    },
-    {
-      lectureId: 5,
-      lectureLink: "materials/php/lec5.pdf",
-      lectureTitle: "PHP and MySQL",
-    },
-    {
-      lectureId: 6,
-      lectureLink: "materials/php/lec6.pdf",
-      lectureTitle: "Clasess and Objects",
-    },
-    {
-      lectureId: 7,
-      lectureLink: "materials/php/lec7.pdf",
-      lectureTitle: "File handling in PHP",
-    },
-    /* {
-      lectureId: ,
-      lectureLink: "materials/",
-      lectureTitle: "",
-    }, */
-  ],
+import { course } from "./data/courseDetails.js";
 
-  "ITC 3303": [
-    {
-      lectureId: 1,
-      lectureLink: "materials/dataCom/lec1.pdf",
-      lectureTitle: "Review of Networking Concepts",
-    },
-    {
-      lectureId: 2,
-      lectureLink: "materials/dataCom/lec2.pdf",
-      lectureTitle: "Internet History, Administration and Infrastructure",
-    },
-    {
-      lectureId: 3,
-      lectureLink: "materials/dataCom/lec3.pdf",
-      lectureTitle: "Introduction to Network Models",
-    },
-    {
-      lectureId: 4,
-      lectureLink: "materials/dataCom/lec4.pdf",
-      lectureTitle: "Internet Protocol Version 4 (IPv4)",
-    },
-    {
-      lectureId: 5,
-      lectureLink: "materials/dataCom/lec5.pdf",
-      lectureTitle: "IP Addressing and Classful Addressing ",
-    },
-    {
-      lectureId: 6,
-      lectureLink: "materials/dataCom/lec6.pdf",
-      lectureTitle: "Classless Addressing and Subnetting and Supernetting",
-    },
-    {
-      lectureId: 7,
-      lectureLink: "materials/dataCom/lec7.pdf",
-      lectureTitle: "Delivery and Forwarding of IP Packets",
-    },
-    {
-      lectureId: 8,
-      lectureLink: "materials/dataCom/lec8.pdf",
-      lectureTitle: "Unicast Routing Protocol",
-    },
-    {
-      lectureId: 9,
-      lectureLink: "materials/dataCom/lec9.pdf",
-      lectureTitle: "User Datagram Protocol (UDP)",
-    },
-    {
-      lectureId: 10,
-      lectureLink: "materials/dataCom/lec10.pdf",
-      lectureTitle: "Transmission Control Protocol (TCP)",
-    },
-    {
-      lectureId: 11,
-      lectureLink: "materials/dataCom/lec11.pdf",
-      lectureTitle: "Dynamic Host Configuration Protocol (DHCP)",
-    },
-    {
-      lectureId: 12,
-      lectureLink: "materials/dataCom/lec12.pdf",
-      lectureTitle: "Domain Name System (DNS)",
-    },
-    {
-      lectureId: 13,
-      lectureLink: "materials/dataCom/lec13.pdf",
-      lectureTitle: "File Transfer Protocols (FTP, TFTP)",
-    },
-    {
-      lectureId: 14,
-      lectureLink: "materials/dataCom/lec14.pdf",
-      lectureTitle: "World Wide Web and HTTP",
-    },
-    {
-      lectureId: 15,
-      lectureLink: "materials/dataCom/lec15.pdf",
-      lectureTitle: "Remote Login Protocol (TELNET, SSH)",
-    },
-  ],
-};
+console.log(course());
 
-export function course() {
-  let courseId = localStorage.getItem("courseCode");
-  let lectures = courseDetails[courseId];
-  return lectures;
+let lectures = course();
+if (lectures) {
+  for (let lecture of lectures) {
+    console.log(lecture);
+    addLectures(lecture);
+  }
+}
+
+courseDetailHeading();
+handleClickLecture();
+
+function addLectures(lecture) {
+  let lecturesContainer = document.querySelector("#lecturesCards");
+  lecturesContainer.append(createLectureItem(lecture));
+}
+
+function createLectureItem(lecture) {
+  let lectureCard = document.createElement("li");
+  lectureCard.append(createLectureCard(lecture));
+  return lectureCard;
+}
+
+function createLectureCard(lecture) {
+  let card = document.createElement("button");
+  card.setAttribute("data-lecture-link", lecture.lectureLink);
+  card.id = "lectureButton";
+  card.classList.add("card", "lecture-card");
+  card.append(createLectureLogo(), createLectureDetails(lecture));
+  return card;
+}
+
+function createLectureDetails(lecture) {
+  let lectureDetails = document.createElement("div");
+  lectureDetails.append(
+    createLectureNumber(lecture),
+    createLectureDescription(lecture),
+  );
+  return lectureDetails;
+}
+
+function createLectureLogo() {
+  let docsIcon = document.createElement("img");
+  docsIcon.src = "assets/icons/docs.svg";
+  docsIcon.alt = "document";
+  return docsIcon;
+}
+
+function createLectureNumber(lecture) {
+  let lecturesNumber = document.createElement("h4");
+  lecturesNumber.textContent = "Lecture " + lecture.lectureId;
+  return lecturesNumber;
+}
+
+function createLectureDescription(lecture) {
+  let lecturesDescription = document.createElement("p");
+  lecturesDescription.textContent = lecture.lectureTitle;
+  return lecturesDescription;
+}
+
+function courseDetailHeading() {
+  let CourseHeading = document.querySelector("#courseHeading");
+
+  let courseCode = localStorage.getItem("courseCode");
+  let courseTitle = localStorage.getItem("courseTitle");
+  CourseHeading.textContent = "";
+  CourseHeading.append(
+    courseCode,
+    " ",
+    document.createElement("br"),
+    " ",
+    courseTitle,
+  );
+}
+function handleClickLecture() {
+  let lecturesContainer = document.querySelector("#lecturesCards");
+  lecturesContainer.addEventListener("click", function (event) {
+    let lecture = event.target.closest(".lecture-card");
+
+    if (!lecture) {
+      return;
+    }
+    localStorage.setItem("lectureLink", lecture.dataset.lectureLink);
+    window.location.href = "viewCourse.html";
+    event.stopPropagation();
+  });
 }
