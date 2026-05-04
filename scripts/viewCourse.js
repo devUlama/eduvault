@@ -2,20 +2,33 @@ const url = localStorage.getItem("lectureLink");
 
 let pdfDoc = null;
 let pageNum = 1;
-let scale = 1.5;
+let zoom = 1;
 let canvas = document.getElementById("pdf-canvas");
 let ctx = canvas.getContext("2d");
 
 function renderPage(num) {
   pdfDoc.getPage(num).then(function (page) {
-    const viewport = page.getViewport({ scale });
+    const container = document.getElementById("viewer-container"); // parent div
+    const containerWidth = container.clientWidth;
 
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
+    const viewport = page.getViewport({ scale: 1 });
+    const scale = containerWidth / viewport.width;
+
+    const scaledViewport = page.getViewport({ scale });
+
+    const outputScale = window.devicePixelRatio || 1;
+
+    canvas.width = scaledViewport.width * outputScale;
+    canvas.height = scaledViewport.height * outputScale;
+
+    canvas.style.width = scaledViewport.width + "px";
+    canvas.style.height = scaledViewport.height + "px";
+
+    ctx.setTransform(outputScale, 0, 0, outputScale, 0, 0);
 
     const renderContext = {
       canvasContext: ctx,
-      viewport: viewport,
+      viewport: scaledViewport,
     };
 
     page.render(renderContext);
@@ -45,12 +58,12 @@ function prevPage() {
 }
 
 function zoomIn() {
-  scale += 0.2;
+  zoom += 0.2;
   renderPage(pageNum);
 }
 
 function zoomOut() {
-  if (scale <= 0.4) return;
-  scale -= 0.2;
+  if (zoom <= 0.4) return;
+  zoom -= 0.2;
   renderPage(pageNum);
 }
