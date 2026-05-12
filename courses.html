@@ -6,8 +6,14 @@
     <title>Courses</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/courses.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="inter-body">
     <header class="header">
       <figure>
         <img
@@ -17,7 +23,7 @@
           height="53px"
         />
       </figure>
-      <h1>EduVault</h1>
+      <h1 class="inter-heading">EduVault</h1>
       <button class="toggle-nav" id="toggle-nav">toggle nav</button>
     </header>
     <nav class="menu-container" id="nav">
@@ -34,6 +40,11 @@
         <div class="main-section__heading" id="coursesPage">
           <h2></h2>
           <p></p>
+          <ul>
+            <button class="filter-search">All</button>
+            <button class="filter-search">First Semester</button>
+            <button class="filter-search">Second Semester</button>
+          </ul>
         </div>
         <ul class="main-section__body" id="course-card">
           <!-- <li>

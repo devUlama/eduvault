@@ -6,8 +6,14 @@
     <title>Department</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/department.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="inter-body">
     <header class="header">
       <figure>
         <img
@@ -17,7 +23,7 @@
           height="53px"
         />
       </figure>
-      <h1>EduVault</h1>
+      <h1 class="inter-heading">EduVault</h1>
       <button class="toggle-nav" id="toggle-nav">toggle nav</button>
     </header>
     <nav class="menu-container" id="nav">
@@ -32,7 +38,12 @@
     <main>
       <section class="main-section">
         <div class="main-section__heading">
-          <h2>Select your department</h2>
+          <h2
+            class="inter-heading inter-heading--small nowrap"
+            style="letter-spacing: normal"
+          >
+            Select your department
+          </h2>
           <p>Which department did you belong to?</p>
         </div>
         <ul class="main-section__body">
@@ -48,7 +59,7 @@
                   alt="computer-science-logo"
                 />
               </figure>
-              <p>computer science</p>
+              <p class="inter-heading inter-heading--small">computer science</p>
             </a>
           </li>
           <li>
@@ -63,7 +74,9 @@
                   alt="software-engneering-logo"
                 />
               </figure>
-              <p>software engineering</p>
+              <p class="inter-heading inter-heading--small">
+                software engineering
+              </p>
             </a>
           </li>
           <li>
@@ -78,7 +91,7 @@
                   alt="cyber-security-logo"
                 />
               </figure>
-              <p>cyber security</p>
+              <p class="inter-heading inter-heading--small">cyber security</p>
             </a>
           </li>
           <li>
@@ -93,7 +106,9 @@
                   alt="information-technology-logo"
                 />
               </figure>
-              <p>information technology</p>
+              <p class="inter-heading inter-heading--small">
+                information technology
+              </p>
             </a>
           </li>
         </ul>

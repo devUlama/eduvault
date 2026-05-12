@@ -4,13 +4,101 @@ const courses = {
       {
         courseCode: "COS 101",
         courseTitle: "Introduction to Computing Science",
+        courseDescription:
+          "Introduce the fundamental concepts, history, and application oof computer science",
+        semester: "1",
       },
-      { courseCode: "COS 102", courseTitle: "Problem Solving" },
-      { courseCode: "STA 111", courseTitle: "Descriptive Statistics" },
-      { courseCode: "MTH 101", courseTitle: "Elementary Mathematics I" },
-      { courseCode: "PHY 101", courseTitle: "General Physics I" },
-      { courseCode: "GST 111", courseTitle: "Communication in English" },
-      { courseCode: "PHY 107", courseTitle: "Practical Physics I" },
+      {
+        courseCode: "COS 102",
+        courseTitle: "Problem Solving",
+        courseDescription:
+          "Develops logical and analytical techniques for solving computational and real-world problem",
+        semester: "1",
+      },
+      {
+        courseCode: "STA 111",
+        courseTitle: "Descriptive Statistics",
+        courseDescription:
+          "Covers methods of collecting, organizing, analyzing, and presenting statistical data",
+        semester: "1",
+      },
+      {
+        courseCode: "MTH 101",
+        courseTitle: "Elementary Mathematics I",
+        courseDescription:
+          "Focuses on foundational topics in Set, algebra and  trigonometry",
+        semester: "1",
+      },
+      {
+        courseCode: "PHY 101",
+        courseTitle: "General Physics I",
+        courseDescription:
+          "Explain the basic principles of mechanics, motion, force, and energy",
+        semester: "1",
+      },
+      {
+        courseCode: "PHY 102",
+        courseTitle: "General Physics II",
+        courseDescription:
+          "Examines the principles of electricity and magnetism",
+        semester: "1",
+      },
+      {
+        courseCode: "GST 111",
+        courseTitle: "Communication in English",
+        courseDescription:
+          "Develops effective communication skills in English through writing, and speaking",
+        semester: "1",
+      },
+      {
+        courseCode: "PHY 107",
+        courseTitle: "Practical Physics I",
+        courseDescription:
+          "Provides practical experience in basic physics experiments and measurements",
+        semester: "1",
+      },
+      {
+        courseCode: "BUK-ICT 102",
+        courseTitle: "Introduction to Information & Communication Technology",
+        courseDescription:
+          "Introduces the fundamentals of information and communication technology and its application",
+        semester: "2",
+      },
+      {
+        courseCode: "BUK-COS 104",
+        courseTitle: "Introduction to Application Packages",
+        courseDescription:
+          "Covers the use of common computer application software for productivity and data management",
+        semester: "2",
+      },
+      {
+        courseCode: "BUK-COS 104",
+        courseTitle: "Introduction to Computer Programming",
+        courseDescription:
+          "Introduce the fundamental programmming concepts using python programming Language",
+        semester: "2",
+      },
+      {
+        courseCode: "MTH 102",
+        courseTitle: "Elementary Mathematics II",
+        courseDescription:
+          "Learn topics in calculus which include functions, differentiation and integration",
+        semester: "2",
+      },
+      {
+        courseCode: "GST 112",
+        courseTitle: "Nigerian Peoples and Culture",
+        courseDescription:
+          "Examines the cultural heritage, traditions, and social values of Nigerian peoples",
+        semester: "2",
+      },
+      {
+        courseCode: "PHY 108",
+        courseTitle: "Practical Physics II",
+        courseDescription:
+          "Provides laboratory practices in electricity and magnetism",
+        semester: "2",
+      },
     ],
     200: [
       { courseCode: "ENT 211", courseTitle: "Enterprenuership and Innovation" },

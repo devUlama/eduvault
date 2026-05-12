@@ -37,7 +37,7 @@ function addCourseDetials(courseCard, course) {
 /* CREATE COURSE CODE NODE */
 function createCourseCode(course) {
   let courseCode = document.createElement("span");
-  courseCode.classList.add("button", "course-card__code");
+  courseCode.classList.add("button", "course-card__code", "poppins-semibold");
   /* to be check */
   courseCode.textContent = course.courseCode;
   return courseCode;
@@ -46,6 +46,7 @@ function createCourseCode(course) {
 /* CREATE COURSE TITLE NODE */
 function createCourseTitle(course) {
   let courseTitle = document.createElement("h3");
+  courseTitle.classList.add("course-title");
   courseTitle.textContent = course.courseTitle;
   return courseTitle;
 }
@@ -53,8 +54,9 @@ function createCourseTitle(course) {
 /* CREATE COURSE DESCRIPTION NODE */
 function createCourseDescription(course) {
   let courseDescription = document.createElement("p");
-  courseDescription.textContent =
-    "Learn the basic and fundamentals of computer science";
+  courseDescription.classList.add("course-description");
+  courseDescription.textContent = course.courseDescription;
+
   return courseDescription;
 }
 
@@ -65,8 +67,10 @@ function setHeading() {
 
   let header = document.querySelector("#coursesPage");
 
-  header.firstElementChild.textContent = localStorage.getItem("department");
-  header.lastElementChild.textContent =
+  let heading = header.firstElementChild;
+  heading.textContent = localStorage.getItem("department");
+  heading.classList.add("inter-heading", "inter-heading--small", "nowrap");
+  heading.nextElementSibling.textContent =
     "Browse Level " +
     level +
     " " +
